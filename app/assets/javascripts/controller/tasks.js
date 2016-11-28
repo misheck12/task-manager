@@ -25,7 +25,7 @@ $(function () {
                     '<div class="colorpicker-color"><div /></div>' +
                     '<div class="colorpicker-selectors"></div>' + '</div>';
 
-    $('.cpicker').colorpicker({ template });
+    $('.cpicker').colorpicker({ template: template });
   });
 
   $(".single_service input").click(function() {
