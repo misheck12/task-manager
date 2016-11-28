@@ -11,8 +11,16 @@ module Ccontrol
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.serve_static_assets = true
+    # add all asset pipeline images sub folders
+    
+    Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|
+      config.assets.paths << path
+    end
+
   end
 end
 
-
+# add all asset pipeline images sub folders
+    Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|
+      config.assets.paths << path
+    end

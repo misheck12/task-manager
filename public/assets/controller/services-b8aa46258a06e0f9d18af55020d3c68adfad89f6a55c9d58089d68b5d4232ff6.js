@@ -1,0 +1,2 @@
+var servicejs = 'empty'
+;

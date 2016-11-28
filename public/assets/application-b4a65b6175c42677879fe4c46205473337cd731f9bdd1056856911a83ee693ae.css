@@ -1,0 +1,541 @@
+/*
+Make it easy to find the color box when the selected color is the same as background color
+*/
+
+.colorpicker-element i {
+  border: 1px solid #ccc;
+}
+
+/*
+Adjust indicator size on FullCalendar
+*/
+.calendar_indicator {
+  font-size: 10px!important;
+  top: 1px;
+  position: relative;
+  -webkit-text-stroke: 1px white;
+}
+
+/*
+Ugly hack to make the color box show on Modal
+*/
+.colorpicker-visible {z-index: 9999!important;}
+    .translation_missing {
+        border: 1px dashed red;
+    }
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+
+
+ */
+
+/* @import "material/scss/themes/theme-blue"; */
+@import url(plugins/bootstrap/css/bootstrap.css);
+@import url(plugins/node-waves/waves.css);
+@import url(plugins/animate-css/animate.css);
+/*!
+ * Bootstrap-select v1.10.0 (http://silviomoreto.github.io/bootstrap-select)
+ *
+ * Copyright 2013-2016 bootstrap-select
+ * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
+ */
+@import url(plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css);
+@import url(plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css);
+@import url(plugins/jquery-spinner/css/bootstrap-spinner.css);
+@import url(plugins/fullcalendar-3.0.1/fullcalendar.css);
+@import url(plugins/fullcalendar-3.0.1/style.css);
+/* line 8, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+select.bs-select-hidden,
+select.selectpicker {
+  display: none !important;
+}
+
+/* line 12, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select {
+  width: 220px \0;
+  /*IE9 and below*/
+}
+
+/* line 16, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select > .dropdown-toggle {
+  width: 100%;
+  padding-right: 25px;
+  z-index: 1;
+}
+
+/* line 21, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select > select {
+  position: absolute !important;
+  bottom: 0;
+  left: 50%;
+  display: block !important;
+  width: 0.5px !important;
+  height: 100% !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+  border: none;
+}
+
+/* line 32, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select > select.mobile-device {
+  top: 0;
+  left: 0;
+  display: block !important;
+  width: 100% !important;
+  z-index: 2;
+}
+
+/* line 39, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.has-error .bootstrap-select .dropdown-toggle,
+.error .bootstrap-select .dropdown-toggle {
+  border-color: #b94a48;
+}
+
+/* line 43, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.fit-width {
+  width: auto !important;
+}
+
+/* line 46, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+  width: 220px;
+}
+
+/* line 49, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select .dropdown-toggle:focus {
+  outline: thin dotted #333333 !important;
+  outline: 5px auto -webkit-focus-ring-color !important;
+  outline-offset: -2px;
+}
+
+/* line 54, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.form-control {
+  margin-bottom: 0;
+  padding: 0;
+  border: none;
+}
+
+/* line 59, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.form-control:not([class*="col-"]) {
+  width: 100%;
+}
+
+/* line 62, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.form-control.input-group-btn {
+  z-index: auto;
+}
+
+/* line 65, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group:not(.input-group-btn),
+.bootstrap-select.btn-group[class*="col-"] {
+  float: none;
+  display: inline-block;
+  margin-left: 0;
+}
+
+/* line 71, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group.dropdown-menu-right,
+.bootstrap-select.btn-group[class*="col-"].dropdown-menu-right,
+.row .bootstrap-select.btn-group[class*="col-"].dropdown-menu-right {
+  float: right;
+}
+
+/* line 76, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.form-inline .bootstrap-select.btn-group,
+.form-horizontal .bootstrap-select.btn-group,
+.form-group .bootstrap-select.btn-group {
+  margin-bottom: 0;
+}
+
+/* line 81, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.form-group-lg .bootstrap-select.btn-group.form-control,
+.form-group-sm .bootstrap-select.btn-group.form-control {
+  padding: 0;
+}
+
+/* line 85, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.form-inline .bootstrap-select.btn-group .form-control {
+  width: 100%;
+}
+
+/* line 88, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group.disabled,
+.bootstrap-select.btn-group > .disabled {
+  cursor: not-allowed;
+}
+
+/* line 92, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group.disabled:focus,
+.bootstrap-select.btn-group > .disabled:focus {
+  outline: none !important;
+}
+
+/* line 96, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group.bs-container {
+  position: absolute;
+}
+
+/* line 99, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group.bs-container .dropdown-menu {
+  z-index: 1060;
+}
+
+/* line 102, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .dropdown-toggle .filter-option {
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+  text-align: left;
+}
+
+/* line 108, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .dropdown-toggle .caret {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  margin-top: -2px;
+  vertical-align: middle;
+}
+
+/* line 115, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group[class*="col-"] .dropdown-toggle {
+  width: 100%;
+}
+
+/* line 118, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .dropdown-menu {
+  min-width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 124, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .dropdown-menu.inner {
+  position: static;
+  float: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 134, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .dropdown-menu li {
+  position: relative;
+}
+
+/* line 137, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .dropdown-menu li.active small {
+  color: #fff;
+}
+
+/* line 140, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .dropdown-menu li.disabled a {
+  cursor: not-allowed;
+}
+
+/* line 143, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .dropdown-menu li a {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 150, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .dropdown-menu li a.opt {
+  position: relative;
+  padding-left: 2.25em;
+}
+
+/* line 154, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .dropdown-menu li a span.check-mark {
+  display: none;
+}
+
+/* line 157, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .dropdown-menu li a span.text {
+  display: inline-block;
+}
+
+/* line 160, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .dropdown-menu li small {
+  padding-left: 0.5em;
+}
+
+/* line 163, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .dropdown-menu .notify {
+  position: absolute;
+  bottom: 5px;
+  width: 96%;
+  margin: 0 2%;
+  min-height: 26px;
+  padding: 3px 5px;
+  background: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+  opacity: 0.9;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 180, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group .no-results {
+  padding: 3px;
+  background: #f5f5f5;
+  margin: 0 5px;
+  white-space: nowrap;
+}
+
+/* line 186, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group.fit-width .dropdown-toggle .filter-option {
+  position: static;
+}
+
+/* line 189, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group.fit-width .dropdown-toggle .caret {
+  position: static;
+  top: auto;
+  margin-top: -1px;
+}
+
+/* line 194, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
+  position: absolute;
+  display: inline-block;
+  right: 15px;
+  margin-top: 5px;
+}
+
+/* line 200, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.btn-group.show-tick .dropdown-menu li a span.text {
+  margin-right: 34px;
+}
+
+/* line 203, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.show-menu-arrow.open > .dropdown-toggle {
+  z-index: 1061;
+}
+
+/* line 206, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.show-menu-arrow .dropdown-toggle:before {
+  content: '';
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid rgba(204, 204, 204, 0.2);
+  position: absolute;
+  bottom: -4px;
+  left: 9px;
+  display: none;
+}
+
+/* line 216, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.show-menu-arrow .dropdown-toggle:after {
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid white;
+  position: absolute;
+  bottom: -4px;
+  left: 10px;
+  display: none;
+}
+
+/* line 226, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.show-menu-arrow.dropup .dropdown-toggle:before {
+  bottom: auto;
+  top: -3px;
+  border-top: 7px solid rgba(204, 204, 204, 0.2);
+  border-bottom: 0;
+}
+
+/* line 232, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.show-menu-arrow.dropup .dropdown-toggle:after {
+  bottom: auto;
+  top: -3px;
+  border-top: 6px solid white;
+  border-bottom: 0;
+}
+
+/* line 238, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.show-menu-arrow.pull-right .dropdown-toggle:before {
+  right: 12px;
+  left: auto;
+}
+
+/* line 242, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.show-menu-arrow.pull-right .dropdown-toggle:after {
+  right: 13px;
+  left: auto;
+}
+
+/* line 246, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bootstrap-select.show-menu-arrow.open > .dropdown-toggle:before,
+.bootstrap-select.show-menu-arrow.open > .dropdown-toggle:after {
+  display: block;
+}
+
+/* line 250, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bs-searchbox,
+.bs-actionsbox,
+.bs-donebutton {
+  padding: 4px 8px;
+}
+
+/* line 255, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bs-actionsbox {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 261, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bs-actionsbox .btn-group button {
+  width: 50%;
+}
+
+/* line 264, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bs-donebutton {
+  float: left;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 271, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bs-donebutton .btn-group button {
+  width: 100%;
+}
+
+/* line 274, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bs-searchbox + .bs-actionsbox {
+  padding: 0 8px 4px;
+}
+
+/* line 277, /Users/maurobaptista/Documents/Rails/ccontrol/vendor/assets/material/plugins/bootstrap-select/css/bootstrap-select.css */
+.bs-searchbox .form-control {
+  margin-bottom: 0;
+  width: 100%;
+  float: none;
+}
+
+/*# sourceMappingURL=bootstrap-select.css.map */
+/* @import "material/scss/style"; */
+/*
+*= require "material/css/style.css"
+*=require "material/css/themes/theme-blue.css"
+*/
+/*
+ * CSS File of Material icons.
+ * CSS code based on:
+ * https://google.github.io/material-design-icons/#icon-font-for-the-web
+ */
+
+
+
+
+
+
+/* Use the font */
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/MaterialIcons-Regular-8c998b4a9c0acbb9fe5dd572c206a5a33fdd5ca2b58db87fc3b893beac85068d.eot'); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url('/assets/MaterialIcons-Regular-a87d66c91b2e7dc5530aef76c03bd6a3d25ea5826110bf4803b561b811cc8726.woff2') format('woff2'),
+       url('/assets/MaterialIcons-Regular-c4a1baec300d09e03a8380b85918267ee80faae8e00c6c56b48e2e74b1d9b38d.woff') format('woff'),
+       url('/assets/MaterialIcons-Regular-b7f4a3ab562048f28dd1fa691601bc43363a61d0f876d16d8316c52e4f32d696.ttf') format('truetype');
+}
+
+/* Base class */
+.material-icons,
+.mi {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18, .mi.md-18 { font-size: 18px; }
+.material-icons.md-24, .mi.md-24 { font-size: 24px; }
+.material-icons.md-36, .mi.md-36 { font-size: 36px; }
+.material-icons.md-48, .mi.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark, .mi.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive, .mi.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light, .mi.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive, .mi.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+/* Rules to rotate items */
+.material-icons.r90, .mi.r90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.material-icons.r180, .mi.r180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.material-icons.r270, .mi.r270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+.material-icons.flip-horizontal, .mi.flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+.material-icons.flip-vertical, .mi.flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
