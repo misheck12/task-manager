@@ -8,7 +8,7 @@ class CreateTasks < ActiveRecord::Migration[5.0]
       t.boolean :single_event, :null => false
       t.string :activity, :null => false
       t.text :comment
-      t.boolean :done, :default => 0
+      t.boolean :done, :default => false
       t.datetime :done_at
       t.string :color, :null => false
       t.string :token, :null => false
