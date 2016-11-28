@@ -1,0 +1,88 @@
+<script>
+  $(document).ready(function() {
+    $('#calendar').fullCalendar ({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,basicWeek,basicDay'
+      },
+      defaultDate: moment().format(),
+      navLinks: true, // can click day/week names to navigate views
+      editable: false,
+      eventLimit: true, // allow "more" link when too many events
+
+      events: [
+      <% tasks.each do |task| %>
+        {
+          id: '<%= task.id %>',
+          title: '<%= task.activity %>',
+          start: moment('<%= task.when %>').format(),
+          end: moment('<%= task.when %>').add(<%= task.duration %>, 'minute').format(),
+          color: '<%= task.color %>',
+          token: '<%= task.token %>',
+          done: <%= (task.done.present?) ? 'true' : 'false' %>
+        },
+      <% end %>
+      ],
+      eventClick: function(calEvent, jsEvent, view) {
+        console.log(calEvent.start);
+        $('#eventModal').modal('toggle');
+        $('#eventModalLabel').text(calEvent.title);
+        
+        var $modal = $('#modal-ajax');
+        
+        var request = $.ajax({
+          url: "/<%= I18n.locale %>/tasks/" + calEvent.id + "/edit",
+          method: "GET",
+          dataType: "html"
+        });
+         
+        request.done(function( msg ) {
+          $modal.html( msg );
+        });
+         
+        request.fail(function( jqXHR, textStatus ) {
+          console.log( "Request failed: " + textStatus );
+        });
+      },
+      eventRender: function(event, element) {
+        if (event.done == true) {
+          element.find('.fc-title').prepend('<%= material_icon.lens.css_class("calendar_indicator col-green") %> '); 
+        } else if (event.start._d < moment()._d) {
+          element.find('.fc-title').prepend('<%= material_icon.lens.css_class("calendar_indicator col-red") %> ');
+        }
+      },
+      viewRender: function(view) {
+        $(".fc-next-button").addClass('fc-state-default').removeClass('fc-state-disabled');
+        $(".fc-prev-button").addClass('fc-state-default').removeClass('fc-state-disabled');
+        if (view.intervalEnd.subtract(1, 'month') > moment().add(6, 'month')) {
+            $(".fc-next-button").addClass('fc-state-disabled').removeClass('fc-state-default');
+            return false;
+        } else if (view.intervalEnd.subtract(1, 'month') < moment().subtract(2, 'month')) {
+            $(".fc-prev-button").addClass('fc-state-disabled').removeClass('fc-state-default');
+            return false;
+        }
+      }
+    });
+  });
+
+  $('#eventModal').on('hidden.bs.modal', function (e) {
+    $('#modal-ajax').text();
+  });
+
+</script>
+<div class="modal fade" id="eventModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title" id="eventModalLabel">Modal title</h4>
+          </div>
+          <div id="modal-ajax" class="modal-body">
+              
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+          </div>
+      </div>
+  </div>
+</div>

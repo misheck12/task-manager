@@ -1,0 +1,48 @@
+<%= render 'layouts/pages/index',
+  text_title: 'services',
+  model_path: new_service_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Service type</th>
+      <th>Active</th>
+      <th>Suspended</th>
+      <th>Info</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @services.each do |service| %>
+      <tr>
+        <td><%= service.client.name %></td>
+        <td><%= service.service_type.name %></td>
+        <td>
+          <% if (service.active.present?) %>
+            <span class="label bg-red">Active</span> 
+          <% else %>
+            <span class="label bg-red">Inactive</span> 
+          <% end %>
+        </td>
+        <td>
+          <% if (service.suspended.present?) %>
+            <span class="label bg-red">Suspended</span> 
+            <span class="label bg-grey">
+              <%= format service.suspended_at %>
+            </span>
+          <% end %>
+        </td>
+        <td><%= service.info %></td>
+        <td>
+          <%= link_to 'Show', service %> |
+          <%= link_to 'Edit', edit_service_path(service) %> |
+          <%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render 'layouts/pages/end' %>

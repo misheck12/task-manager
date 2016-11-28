@@ -1,0 +1,33 @@
+<%= render 'layouts/pages/index',
+  text_title: 'clients',
+  model_path: new_client_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Site</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.name %></td>
+        <td><%= client.email %></td>
+        <td><%= client.address %></td>
+        <td><%= client.site %></td>
+        <td>
+            <%= link_to 'Show', client %> |
+            <%= link_to 'Edit', edit_client_path(client) %> |
+            <%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render 'layouts/pages/end' %>

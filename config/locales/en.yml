@@ -1,0 +1,92 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  general:
+    name: Site Name
+    description: Site Description
+  alert:
+    success: Well done!
+    info: Heads up!
+    warning: Warning!
+    danger: Oh snap!
+    msg:
+      success: '%{item} changed'
+      error: '%{item} NOT changed'
+  layouts:
+    basic:
+      info: Info
+      edit: Edit
+      add: Add
+      show: Show
+    application:
+      main_navigation: MAIN NAVIGATION
+      home: Dashboard
+      dashboard: Dashboard
+      profile: Profile
+      users: Profile
+      clients: Clients
+      service_types: Service Type
+      services: Services
+      tasks: Tasks
+  form:
+    signin: Login
+    signup: Sign Up
+    signout: Sign Out
+    username: Username
+    email: Email
+    password: Password
+    password_confirm: Confirm Password
+    send: Send
+    errors: There are some errors on the form
+    already_member: You already have a membership?
+    not_member: Register Now!
+    name: Name
+    address: address
+    site: Site
+    activity: Activity
+    when: When
+    color: Color
+  signup_mailer:
+    confirm_email:
+      subject: 'Site Name - Confirm your email'
+      title: 'Welcome to Site Name!'
+      body: Hi, %{full_name}.
+      confirm_link_html: 'Please, access the link: %{link}'
+      thanks_html: 'Thanks to signup %{link}.'
+  confirmations:
+    success: Confirmation successfull!
+    needed: Please, verify your email to confirm your  Sign up!
+  users:
+    update:
+      profile: Profile
+    form:
+      title: Register a new membership
+  auth:
+    new:
+      title: Sign in to start your session
+  activemodel:
+    errors:
+      models:
+        auth:
+          attributes:
+            base:
+              invalid_login: Invalid login

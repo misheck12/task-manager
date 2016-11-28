@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="header">
+      <h2>
+          <%= t 'layouts.basic.edit_task' %>
+      </h2>
+      <ul class="header-dropdown m-r-0">
+        <li class="m-r-30">
+          <%= link_to @task do %>
+            <%= material_icon.visibility %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to @task, method: :delete, data: { confirm: 'Are you sure you want to delete this event?' } do %>
+            <%= material_icon.delete_forever %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_all_tasks_path, method: :delete, data: { confirm: 'Are you sure you want to delete this event and all future repetition of this event?' } do %>
+            <%= material_icon.delete_sweep %>
+          <% end %>
+        </li>
+      </ul>
+  </div>
+  <div class="body">
+
+<%= render 'form_edit', task: @task %>
+
+<%= render 'layouts/pages/end' %>

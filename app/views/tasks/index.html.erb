@@ -1,0 +1,8 @@
+<%= render 'layouts/pages/index',
+  text_title: 'tasks',
+  model_path: new_task_path %>
+
+<div id='calendar'></div>
+
+<%= render 'layouts/pages/end' %>
+<%= render 'tasks/script/fullcalendar', tasks: @tasks %>

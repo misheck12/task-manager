@@ -1,0 +1,26 @@
+<%= render 'layouts/pages/show',
+  text_title: 'client',
+  model_path: edit_client_path(@client),
+  model_element: @client %>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @client.name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @client.email %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @client.address %>
+  </p>
+
+  <p>
+    <strong>Site:</strong>
+    <%= @client.site %>
+  </p>
+  
+<%= render 'layouts/pages/end' %>

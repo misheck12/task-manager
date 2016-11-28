@@ -1,0 +1,12 @@
+<%= form_for service_type, :html => { :id => 'service_type_form' } do |f| %>
+  <%= render "layouts/errors", :model_error => service_type %>
+
+  <%= f.label :name %>
+  <div class="form-group">
+    <div class="form-line">
+      <%= f.text_field :name, :class => 'form-control', :placeholder => t('form.name') %>
+    </div>
+  </div>
+
+  <%= f.submit t('form.send'), :class => 'btn btn-primary m-t-15 waves-effect' %>
+<% end %>

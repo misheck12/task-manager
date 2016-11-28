@@ -1,0 +1,27 @@
+<%= render 'layouts/pages/index',
+  text_title: 'service_types',
+  model_path: new_service_type_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @service_types.each do |service_type| %>
+      <tr>
+        <td><%= service_type.name %></td>
+        <td>
+          <%= link_to 'Show', service_type %> |
+          <%= link_to 'Edit', edit_service_type_path(service_type) %> |
+          <%= link_to 'Destroy', service_type, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render 'layouts/pages/end' %>

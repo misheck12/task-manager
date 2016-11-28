@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="header">
+      <h2>
+          <%= t 'layouts.basic.all_' + text_title %>
+      </h2>
+      <ul class="header-dropdown m-r-0">
+        <li>
+          <%= link_to model_path do %>
+            <%= material_icon.library_add %>
+          <% end %>
+        </li>
+      </ul>
+  </div>
+  <div class="body table-responsive">

@@ -1,0 +1,9 @@
+<%= render 'layouts/pages/show',
+  text_title: 'service_type',
+  model_path: edit_service_type_path(@service_type),
+  model_element: @service_type %>
+    <p>
+      <strong>Name:</strong>
+      <%= @service_type.name %>
+    </p>
+<%= render 'layouts/pages/end' %>

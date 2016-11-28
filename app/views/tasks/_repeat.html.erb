@@ -1,0 +1,79 @@
+<div id="repeat_form" class="card" style="display: <%= check_value params[:single_event], '0', 'block', 'none' %>;">
+  <div class="body">
+    <h4 class="m-b-20">Repetition Info</h4>
+    <div class="row clearfix">
+      <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+        <%= label_tag 'repeat' %>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+        <div class="form-group">
+          <div class="form-line">
+            <%= select_tag 'repeat', options_for_select([['Weekly', 'w'], ['Monthly', 'm']], params[:repeat]), :class => 'form-control' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row clearfix">
+      <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
+        <%= label_tag 'repeat_every' %>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-4">
+        <div class="form-group">
+          <div class="form-line">
+            <%= select_tag 'repeat_every', options_for_select((1..24).to_a, params[:repeat_every]), :class => 'form-control' %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-4">
+        <span class="repeat_period"><%= check_value params[:repeat], 'm', 'Month', 'Week' %>(s)</span>
+      </div>
+    </div>
+
+    <div class="row clearfix repeat_on" style="display: <%= check_value params[:repeat], 'm', 'none', 'block' %>">
+      <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+        <%= label_tag 'repeat_on' %>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-8 col-xs-5">
+        <div class="form-group">
+          <% Date::DAYNAMES.each do |day| %>
+            <% short_day = day[0..2].downcase %>
+            <input name="repeat_on[<%= short_day %>]" type="checkbox" id="<%= short_day %>" value="<%= short_day %>" <%= check_weekday params[:repeat_on], short_day %>>
+            <label for="<%= short_day %>" class="m-r-30"><%= day %></label>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row clearfix repeat_by" style="display: <%= check_value params[:repeat], 'm', 'block', 'none' %>;">
+      <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+        <%= label_tag 'repeat_by' %>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-8 col-xs-5">
+        <div class="form-group">
+          <input name="repeat_by" type="radio" id="month" value="m" checked class="with-gap">
+          <label for="month">Day of the month</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row clearfix">
+      <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+        <%= label_tag 'repeat_end' %>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-8 col-xs-5">
+        <div class="form-group">
+          <div class="row clearfix">
+            <input name="repeat_end" type="radio" id="year" value="y" <%= check_value params[:repeat_end], 'y', 'checked' %> class="with-gap">
+            <label for="year">in 1 year</label>
+          </div>
+          <div class="row clearfix m-t-10">
+            <input name="repeat_end" type="radio" id="on" value="d" <%= check_value params[:repeat_end], 'd', 'checked' %> class="with-gap">
+            <label for="on">on <%= text_field_tag 'end_on_temp', params[:end_on_temp], :style => 'width: 120px;', :class => 'm-l-10 datepicker' %></label>
+            <%= hidden_field_tag 'repeat_end_on', params[:repeat_end_on], :id =>'end_on' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

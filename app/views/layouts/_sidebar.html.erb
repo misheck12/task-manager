@@ -1,0 +1,91 @@
+<section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info" style="background: url(<%= user_background %>) no-repeat no-repeat;     background-size: cover;">
+                <div class="image">
+                    <img src="<%= user_photo true %>" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= current_user.full_name %>
+                    </div>
+                    <div class="email">
+                        <%= current_user.email %>
+                    </div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                        
+                            <li>
+                                <%= link_to user_path(:id => current_user.id) do %>
+                                    <%= material_icon.person %> <%= t 'layouts.application.profile' %>
+                                <% end %>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <!--
+                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                            <li role="separator" class="divider"></li>
+                        -->
+                            <li>
+                                <%= link_to auth_path, method: :delete do %>
+                                    <i class="material-icons">input</i> <%= t 'form.signout' %>
+                                <% end %>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header"><%= t 'layouts.application.main_navigation' %></li>
+                    <li class="<%= page_active? 'dashboard', controller_name %>">
+                        <%= link_to dashboard_path do %>
+                            <%= material_icon.home %>
+                            <span><%= t 'layouts.application.home' %></span>
+                        <% end %>
+                    </li>
+                    <li class="<%= page_active? 'clients', controller_name %>">
+                        <%= link_to clients_path do %>
+                            <%= material_icon.contacts %>
+                            <span><%= t 'layouts.application.clients' %></span>
+                        <% end %>
+                    </li>
+                    <li class="<%= page_active? 'service_types', controller_name %>">
+                        <%= link_to service_types_path do %>
+                            <%= material_icon.developer_board %>
+                            <span><%= t 'layouts.application.service_types' %></span>
+                        <% end %>
+                    </li>
+                    <li class="<%= page_active? 'services', controller_name %>">
+                        <%= link_to services_path do %>
+                            <%= material_icon.phonelink %>
+                            <span><%= t 'layouts.application.services' %></span>
+                        <% end %>
+                    </li>
+                    <li class="<%= page_active? 'tasks', controller_name %>">
+                        <%= link_to tasks_path do %>
+                            <%= material_icon.event %>
+                            <span><%= t 'layouts.application.tasks' %></span>
+                        <% end %>
+                    </li>
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2016 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 1.0.4
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>

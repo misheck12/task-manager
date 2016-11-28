@@ -1,0 +1,12 @@
+<% if notice.present? %>
+  <div id="notice" class="alert alert-info">
+    <%= notice %>
+  </div>
+<% end %>
+<% if alert.present? %>
+  <div id="alert" class="alert alert-danger">
+    <%= alert %>
+  </div>
+<% end %>
+
+<%= link_to 'Sign UP', new_user_path %> / <%= link_to 'Sign IN', new_auth_path %>

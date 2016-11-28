@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service_type: one
+  client: one
+  active: false
+  suspended: false
+  info: MyText
+  suspended_at: 2016-11-23 20:08:19
+
+two:
+  service_type: two
+  client: two
+  active: false
+  suspended: false
+  info: MyText
+  suspended_at: 2016-11-23 20:08:19

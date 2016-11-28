@@ -1,0 +1,87 @@
+<%= form_for task, :html => { :id => 'task_form' } do |f| %>
+  <%= render "layouts/errors", :model_error => task %>
+
+  <%= f.label :user_id %>
+  <div class="form-group">
+    <div class="form-line">
+      <%= f.select :user_id, options_from_collection_for_select(@user, "id", "full_name", task.user_id), {}, :class => 'form-control' %>
+    </div>
+  </div>
+  
+  <%= f.label :client_id %> 
+  <div class="form-group">
+    <div class="form-line">
+      <%= f.select :client_id, options_from_collection_for_select(@client, "id", "name", task.client_id), {}, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row clearfix">
+    <div class="col-lg-8 col-md-7 col-sm-8">
+      <%= f.label :activity %>
+      <div class="form-group">
+        <div class="form-line">
+          <%= f.text_field :activity, :class => 'form-control', :placeholder => t('form.activity') %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-5 col-sm-4 col-xs-8">
+      <%= f.label :color %>
+      <div class="input-group cpicker colorpicker-element">
+        <div class="form-line">
+          <%= f.text_field :color, :class => 'form-control', :placeholder => t('form.color') %>
+        </div>
+        <span class="input-group-addon">
+          <i></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row clearfix">
+    <div class="col-lg-8 col-md-7 col-sm-8">
+      <%= f.label :when %>
+      <div class="form-group">
+        <div class="form-line">
+          <%= text_field_tag 'temp_when', check_when(params[:task]), :class => 'datetimepicker form-control', :placeholder => t('form.when') %>
+          <%= f.hidden_field :when, :class => 'form-control' %>      
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-5 col-sm-4 col-xs-6">
+      <%= f.label :duration, 'Duration (minutes)' %> 
+      <div class="input-group spinner" data-trigger="spinner">
+        <div class="form-line">
+          <%= f.text_field :duration, :class => 'form-control text-center', "data-rule" => "quantity" %>
+        </div>
+        <span class="input-group-addon">
+          <a href="javascript:;" class="spin-up" data-spin="up"><i class="glyphicon glyphicon-chevron-up"></i></a>
+          <a href="javascript:;" class="spin-down" data-spin="down"><i class="glyphicon glyphicon-chevron-down"></i></a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <%= f.label :comment %>
+  <div class="form-group">
+    <div class="form-line">
+      <%= f.text_area :comment, :class => 'form-control no-resize', :placeholder => 'Add some information about this task', :rows => 4  %>
+    </div>
+  </div>
+
+  <div class="row clearfix">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="body">
+          <div class="single_service">
+            <input name="single_event" type="radio" id="single_service" value='1' <%= check_value params[:single_event], '0', '', 'checked' %> class="with-gap">
+            <label for="single_service">Single Event</label>
+            <input name="single_event" type="radio" value='0' <%= check_value params[:single_event], '0', 'checked' %> id="repeat_service" class="with-gap">
+            <label for="repeat_service" class="m-l-30">Repeat</label>
+          </div>
+        </div>
+      </div>
+      <%= render 'repeat' %>
+    </div>
+  </div>
+  <%= f.submit t('form.send'), :class => 'btn btn-primary m-t-15 waves-effect' %>
+<% end %>

@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="header">
+      <h2>
+          <%= t 'layouts.basic.edit_photo' %>
+      </h2>
+      <%= render 'dropdown' %>
+  </div>
+  <div class="body">
+    <%= form_for @user, url: edit_photo_user_path, :html => { :id => 'edit_profile_photo', :multipart => true } do |f| %>
+      <% if @user.errors.any? %>
+        <div class="alert alert-danger">
+          <% @user.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <%= material_icon.person %>
+        </span>
+        <div class="form-line">
+          <%= f.file_field :photo %>
+        </div>
+      </div>
+      <%= f.submit t('form.send'), :class => 'btn btn-primary m-t-15 waves-effect' %>
+    <% end %>
+  </div>
+</div>

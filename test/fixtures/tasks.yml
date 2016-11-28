@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  client: one
+  when: 2016-11-24 10:25:06
+  duration: 1
+  single_event: false
+  activity: MyString
+  comment: MyText
+  done: false
+  done_at: 2016-11-24 10:25:06
+  color: MyString
+  token: MyString
+
+two:
+  user: two
+  client: two
+  when: 2016-11-24 10:25:06
+  duration: 1
+  single_event: false
+  activity: MyString
+  comment: MyText
+  done: false
+  done_at: 2016-11-24 10:25:06
+  color: MyString
+  token: MyString

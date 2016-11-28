@@ -1,0 +1,43 @@
+<%= form_for @user, :html => { :id => 'sign_up' } do |f| %>
+
+  <div class="msg"><%= t '.title' %></div>
+
+  <%= render "layouts/errors", :model_error => @user %>
+
+  <div class="input-group">
+    <span class="input-group-addon">
+      <%= material_icon.person %>
+    </span>
+    <div class="form-line">
+      <%= f.text_field :full_name, :class => 'form-control', :placeholder => t('form.username') %>
+    </div>
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon">
+      <%= material_icon.email %>
+    </span>
+    <div class="form-line">
+      <%= f.text_field :email, :class => 'form-control', :placeholder => t('form.email') %>
+    </div>
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon">
+      <%= material_icon.lock %>
+    </span>
+    <div class="form-line">
+      <%= f.password_field :password, :class => 'form-control', :placeholder => t('form.password') %>
+    </div>
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon">
+      <%= material_icon.lock %>
+    </span>
+    <div class="form-line">
+      <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => t('form.password_confirm') %>
+    </div>
+  </div>
+  <%= f.submit t('form.send'), :class => 'btn btn-block bg-pink waves-effect' %>
+  <div class="m-t-25 m-b--5 align-center">
+     <%= link_to t('form.already_member'), new_auth_path %>
+  </div>
+<% end %>

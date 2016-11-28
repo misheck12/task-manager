@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="header">
+      <h2>
+          <%= t 'layouts.basic.info' %>
+      </h2>
+      <%= render 'dropdown' %>
+  </div>
+  <div class="body">
+      <p>
+        <strong>Name: </strong>
+        <%= current_user.full_name %>
+      </p>
+      <p>
+        <strong>Email: </strong>
+        <%= current_user.email %>
+      </p>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= t 'general.name' %> - <%= t 'general.description' %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'controller/' + params[:controller], 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="login-page">
+    <div class="login-box">
+      <div class="logo">
+        <%= link_to t('general.name'), root_path %>
+        <small><%= t 'general.description' %></small>
+      </div>
+      <div class="card">
+        <div class="body">
+          <%= yield %>
+        </div>
+      </div>
+    </div>  
+  </body>
+</html>

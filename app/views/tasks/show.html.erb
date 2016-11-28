@@ -1,0 +1,74 @@
+<%= render 'layouts/pages/show',
+  text_title: 'task',
+  model_path: edit_task_path(@task),
+  model_element: @task %>
+  <div class="row clearfix">
+    <div class="col-xs-12">
+        <div class="info-box">
+            <div class="icon bg-<%= status @status %>">
+                <%= material_icon.event %>
+            </div>
+            <div class="content">
+                <div class="text">ACTIVITY</div>
+                <div class="number count-to"><%= @task.activity %></div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="row clearfix">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+              <div class="icon bg-<%= status @status %>">
+                  <%= status @status, 'icon' %>
+              </div>
+              <div class="content">
+                  <div class="text">STATUS</div>
+                  <div class="number count-to"><%= @status.gsub('_',' ').capitalize %></div>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
+          <div class="info-box">
+              <div class="icon bg-<%= status @status %>">
+                  <%= material_icon.alarm %>
+              </div>
+              <div class="content">
+                  <div class="text">WHEN</div>
+                  <div class="number count-to"><%= format @task.when %></div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row clearfix">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+              <div class="icon bg-<%= status @status %>">
+                  <%= material_icon.person %>
+              </div>
+              <div class="content">
+                  <div class="text">USER</div>
+                  <div class="number count-to"><%= @task.user.full_name %></div>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+              <div class="icon bg-<%= status @status %>">
+                  <%= material_icon.contacts %>
+              </div>
+              <div class="content">
+                  <div class="text">CLIENT</div>
+                  <div class="number count-to"><%= @task.client.name %></div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <% if @task.comment.present? %>
+    <div class="card">
+      <div class="body">
+        <p><strong>Comment:</strong></p>
+        <p><%= @task.comment %></p>
+      </div>
+    </div>
+  <% end %>
+<%= render 'layouts/pages/end' %>

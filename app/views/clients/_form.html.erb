@@ -1,0 +1,33 @@
+<%= form_for client, :html => { :id => 'client_form' } do |f| %>
+  <%= render "layouts/errors", :model_error => client %>
+
+  <%= f.label :name %>
+  <div class="form-group">
+    <div class="form-line">
+      <%= f.text_field :name, :class => 'form-control', :placeholder => t('form.name') %>
+    </div>
+  </div>
+
+  <%= f.label :email %>
+  <div class="form-group">
+    <div class="form-line">
+      <%= f.text_field :email, :class => 'form-control', :placeholder => t('form.email') %>
+    </div>
+  </div>
+
+  <%= f.label :address %>
+  <div class="form-group">
+    <div class="form-line">
+      <%= f.text_field :address, :class => 'form-control', :placeholder => t('form.address') %>
+    </div>
+  </div>
+
+  <%= f.label :site %>
+  <div class="form-group">
+    <div class="form-line">
+      <%= f.text_field :site, :class => 'form-control', :placeholder => t('form.site') %>
+    </div>
+  </div>
+
+  <%= f.submit t('form.send'), :class => 'btn btn-primary m-t-15 waves-effect' %>
+<% end %>

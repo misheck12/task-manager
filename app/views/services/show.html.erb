@@ -1,0 +1,39 @@
+<%= render 'layouts/pages/show',
+  text_title: 'service',
+  model_path: edit_service_path(@service),
+  model_element: @service %>
+  <p>
+    <strong>Service type:</strong>
+    <%= @service.service_type.name %>
+  </p>
+
+  <p>
+    <strong>Client:</strong>
+    <%= @service.client.name %>
+  </p>
+
+  <p>
+    <strong>Active:</strong>
+    <% if (@service.active.present?) %>
+      <span class="label bg-red">Active</span> 
+    <% else %>
+      <span class="label bg-red">Inactive</span> 
+    <% end %>
+  </p>
+
+  <% if (@service.suspended.present?) %>
+    <p>
+      <strong>Suspended:</strong>
+      <span class="label bg-red">Suspended</span> 
+      <span class="label bg-grey">
+        <%= format @service.suspended_at %>
+      </span>
+    </p>
+  <% end %>
+
+  <p>
+    <strong>Info:</strong>
+    <%= @service.info %>
+  </p>
+  
+<%= render 'layouts/pages/end' %>

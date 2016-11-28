@@ -1,0 +1,33 @@
+<%= form_for @auth, :url => auth_path, :html => { :id => 'sign_in' } do |f| %>
+  <div class="msg"><%= t '.title' %></div>
+  <% if @auth.errors.has_key? :base %>
+    <div class="alert alert-danger">
+      <%= @auth.errors[:base].join(', ') %>
+    </div>
+  <% end %>
+  <div class="input-group">
+    <span class="input-group-addon">
+      <%= material_icon.email %>
+    </span>
+    <div class="form-line">
+      <%= f.text_field :email, :class => 'form-control', :placeholder => t('form.email') %>
+    </div>
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon">
+      <%= material_icon.lock %>
+    </span>
+    <div class="form-line">
+      <%= f.password_field :password, :class => 'form-control', :placeholder => t('form.password') %>
+    </div>
+  </div>
+  <%= f.submit t('form.send'), :class => 'btn btn-block bg-pink waves-effect' %>
+  <div class="row m-t-15 m-b--20">
+    <div class="col-xs-6">
+      <%= link_to t('form.not_member'), new_user_path %>
+    </div>
+    <div class="col-xs-6 align-right">
+      
+    </div>
+  </div>
+<% end %>

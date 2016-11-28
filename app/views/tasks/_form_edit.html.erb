@@ -1,0 +1,81 @@
+<%= form_for task, :html => { :id => 'task_form' } do |f| %>
+  <%= render "layouts/errors", :model_error => task %>
+
+  <div class="field m-t-10 m-b-10">
+    <%= f.check_box :done, :class => 'chk-col-green filled-in' %>
+    <%= f.label :done %>
+    <% if task.done_at.present? %>
+      <span class="label bg-grey">
+        <%= task.done_at.strftime("%m/%d/%Y %H:%M") %>
+      </span>
+    <% end %>
+  </div>
+
+  <%= f.label :user_id %>
+  <div class="form-group">
+    <div class="form-line">
+      <%= f.select :user_id, options_from_collection_for_select(@user, "id", "full_name", task.user_id), {}, :class => 'form-control' %>
+    </div>
+  </div>
+  
+  <%= f.label :client_id %> 
+  <div class="form-group">
+    <div class="form-line">
+      <%= f.select :client_id, options_from_collection_for_select(@client, "id", "name", task.client_id), {}, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row clearfix">
+    <div class="col-lg-8 col-md-7 col-sm-8">
+      <%= f.label :activity %>
+      <div class="form-group">
+        <div class="form-line">
+          <%= f.text_field :activity, :class => 'form-control', :placeholder => t('form.activity') %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-5 col-sm-4 col-xs-8">
+      <%= f.label :color %>
+      <div class="input-group cpicker colorpicker-element">
+        <div class="form-line">
+          <%= f.text_field :color, :class => 'form-control', :placeholder => t('form.color') %>
+        </div>
+        <span class="input-group-addon">
+          <i></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row clearfix">
+    <div class="col-lg-8 col-md-7 col-sm-8">
+      <%= f.label :when %>
+      <div class="form-group">
+        <div class="form-line">
+          <%= f.datetime_select :when, {}, :class => 'form-control', :style => 'width: auto; display: inline;', :placeholder => t('form.when') %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-5 col-sm-4 col-xs-6">
+      <%= f.label :duration, 'Duration (minutes)' %> 
+      <div class="input-group spinner" data-trigger="spinner">
+        <div class="form-line">
+          <%= f.text_field :duration, :class => 'form-control text-center', "data-rule" => "quantity" %>
+        </div>
+        <span class="input-group-addon">
+          <a href="javascript:;" class="spin-up" data-spin="up"><i class="glyphicon glyphicon-chevron-up"></i></a>
+          <a href="javascript:;" class="spin-down" data-spin="down"><i class="glyphicon glyphicon-chevron-down"></i></a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <%= f.label :comment %>
+  <div class="form-group">
+    <div class="form-line">
+      <%= f.text_area :comment, :class => 'form-control no-resize', :placeholder => 'Add some information about this task', :rows => 4  %>
+    </div>
+  </div>
+
+  <%= f.submit t('form.send'), :class => 'btn btn-primary m-t-15 waves-effect' %>
+<% end %>

@@ -1,0 +1,54 @@
+<div class="row clearfix">
+  <div class="col-sm-4 col-xs-12">
+      <div class="info-box bg-deep-orange hover-expand-effect">
+          <div class="icon">
+              <%= material_icon.assignment_late %>
+          </div>
+          <div class="content">
+              <div class="text">LATE TASKS</div>
+              <div class="number count-to"><%= @tasks_late != nil ? @tasks_late.size : '0' %></div>
+          </div>
+      </div>
+  </div>
+  <div class="col-sm-4 col-xs-12">
+      <div class="info-box bg-orange hover-expand-effect">
+          <div class="icon">
+              <%= material_icon.warning %>
+          </div>
+          <div class="content">
+              <div class="text">TO DO NEXT WEEK</div>
+              <div class="number count-to"><%= @tasks_week != nil ? @tasks_week.size : '0' %></div>
+          </div>
+      </div>
+  </div>
+  <div class="col-sm-4 col-xs-12">
+      <div class="info-box bg-teal hover-expand-effect">
+          <div class="icon">
+              <%= material_icon.done_all %>
+          </div>
+          <div class="content">
+              <div class="text">DONE LAST WEEK</div>
+              <div class="number count-to"><%= @tasks_done != nil ? @tasks_done.size : '0' %></div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-sm-6 col-xs-12">
+    <%= render 'dashboard/card', card_name: 'Late Tasks', card_last_column: 'Expired At', card_task: @tasks_late %>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <%= render 'dashboard/card', card_name: 'Next Tasks', card_last_column: 'Expire In', card_task: @tasks_week %>
+  </div>
+</div>
+
+<%= render 'layouts/pages/index',
+  text_title: 'your_tasks',
+  model_path: new_task_path %>
+
+  <div id='calendar'></div>
+  
+<%= render 'layouts/pages/end' %>
+<%= render 'tasks/script/fullcalendar', tasks: @tasks %>
+

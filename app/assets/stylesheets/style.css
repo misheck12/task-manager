@@ -1,0 +1,21 @@
+/*
+Make it easy to find the color box when the selected color is the same as background color
+*/
+.colorpicker-element i {
+  border: 1px solid #ccc;
+}
+
+/*
+Adjust indicator size on FullCalendar
+*/
+.calendar_indicator {
+  font-size: 10px!important;
+  top: 1px;
+  position: relative;
+  -webkit-text-stroke: 1px white;
+}
+
+/*
+Ugly hack to make the color box show on Modal
+*/
+.colorpicker-visible {z-index: 9999!important;}

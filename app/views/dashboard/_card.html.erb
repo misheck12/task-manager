@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="header">
+      <h2><%= card_name %></h2>
+  </div>
+  <div class="body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Client</th>
+          <th><%= card_last_column %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% card_task.each do |card| %>
+          <tr>
+            <td><%= card.activity %></td>
+            <td><%= card.client.name %></td>
+            <td><%= distance_of_time_in_words(DateTime.now, card.when) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

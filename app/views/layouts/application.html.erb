@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= t 'general.name' %> - <%= t 'general.description' %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'controller/' + params[:controller] %>
+  </head>
+
+  <body class="theme-blue">
+    <%= render 'layouts/pageloader' %>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/sidebar' %>
+    <section class="content">
+      <div class="container-fluid">
+        <div class="block-header">
+          <h2><%= t('.' + controller_name).upcase %></h2>
+        </div>
+        <% if alert.present? && notice.present? %>
+          <div class="alert alert-<%= alert %>">
+              <strong><%= t 'alert.' + alert %></strong> <%= notice %>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </section>
+  </body>
+</html>
