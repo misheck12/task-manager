@@ -177,7 +177,7 @@ class TasksController < ApplicationController
 
   # DELETE /tasks/1/all
   def destroy_all
-    repetition = Task.where('`token` = ?', @task.token).where('`when` >= ?', @task.when)
+    repetition = Task.where('`token` = ?', @task.token).where('when >= ?', @task.when)
     repetition.delete_all
     redirect_to tasks_url, alert: 'success', notice: 'All Tasks were successfully destroyed.'
   end
