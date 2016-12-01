@@ -94,10 +94,10 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :port           => 587,
+    :address        => 'smtp.mailgun.org',
+    :user_name      => 'postmaster@mg.bigpromoter.com',
+    :password       => '7cb0c8cccb2fa7e7f4ee4ce09ee46c',
     :domain         => 'control.bigpromoter.com',
     :authentication => :plain,
   }
