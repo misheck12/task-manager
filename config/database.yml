@@ -50,6 +50,7 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
   database: ccontrol_production
   username: ccontrol
   password: <%= ENV['CCONTROL_DATABASE_PASSWORD'] %>
