@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             SignupMailer.confirm_email(@user).deliver
-            redirect_to edit_user_path, notice: I18n.t('confirmations.needed')
+            redirect_to users_path, alert: 'success', notice: 'User created'
         else
             render action: :new
         end
