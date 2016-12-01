@@ -80,7 +80,7 @@ class TasksController < ApplicationController
         (repeat_start..repeat_end).each do |day|
           if include_task
             if weekdays.include?(day.strftime('%a').downcase)
-              tasks << Task.new(
+               repeat_task = Task.new(
                   :user_id => params[:task][:user_id],
                   :client_id => params[:task][:client_id],
                   :when => day,
@@ -92,6 +92,8 @@ class TasksController < ApplicationController
                   :color => params[:task][:color],
                   :token => token
                 )
+               repeat_task.current_user = current_user
+               tasks << repeat_task
             end
           end
           
