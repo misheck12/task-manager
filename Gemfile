@@ -6,8 +6,8 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Preparation to Heroku
-#gem 'pg'
-#gem 'rails_12factor'
+gem 'pg'
+gem 'rails_12factor'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -32,7 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'material_icons'
 # Include Gem to handle image upload
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
-gem 'rmagick', :require => 'RMagick'
+gem 'rmagick', :require => 'rmagick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
