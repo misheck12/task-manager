@@ -196,6 +196,22 @@
             </ul>
         </li>
          #END# Tasks -->
+         <% if is_admin? %>
+         <li class="dropdown">
+            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                <%= material_icon.settings %>
+            </a>
+            <ul class="dropdown-menu pull-right">
+                        
+                <li>
+                    <a href="<%= settings_roles_path %>" class=" waves-effect waves-block">
+                    <%= material_icon.assignment_ind %> Roles
+</a>                            
+                </li>
+                <!-- <li role="separator" class="divider"></li> -->
+            </ul>
+        </li>
+        <% end %>
       </ul>
     </div>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161124122506) do
+ActiveRecord::Schema.define(version: 20161129173756) do
 
   create_table "clients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -40,21 +40,30 @@ ActiveRecord::Schema.define(version: 20161124122506) do
     t.index ["service_type_id"], name: "index_services_on_service_type_id", using: :btree
   end
 
+  create_table "settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "key",        null: false
+    t.string   "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
+    t.integer  "created_by_id"
     t.integer  "client_id"
-    t.datetime "when"
-    t.integer  "duration"
-    t.boolean  "single_event"
-    t.string   "activity"
-    t.text     "comment",      limit: 65535
-    t.boolean  "done"
+    t.datetime "when",                                        null: false
+    t.integer  "duration",                                    null: false
+    t.boolean  "single_event",                                null: false
+    t.string   "activity",                                    null: false
+    t.text     "comment",       limit: 65535
+    t.boolean  "done",                        default: false
     t.datetime "done_at"
-    t.string   "color"
-    t.string   "token"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "color",                                       null: false
+    t.string   "token",                                       null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.index ["client_id"], name: "index_tasks_on_client_id", using: :btree
+    t.index ["created_by_id"], name: "index_tasks_on_created_by_id", using: :btree
     t.index ["user_id"], name: "index_tasks_on_user_id", using: :btree
   end
 
@@ -75,4 +84,5 @@ ActiveRecord::Schema.define(version: 20161124122506) do
   add_foreign_key "services", "service_types"
   add_foreign_key "tasks", "clients"
   add_foreign_key "tasks", "users"
+  add_foreign_key "tasks", "users", column: "created_by_id"
 end

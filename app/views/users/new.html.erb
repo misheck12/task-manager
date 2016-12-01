@@ -1,1 +1,6 @@
-<%= render 'form' %>
+<%= render 'layouts/pages/new',
+  text_title: 'user' %>
+
+<%= render 'form', user: @user %>
+
+<%= render 'layouts/pages/end' %>

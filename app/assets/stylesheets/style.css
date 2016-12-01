@@ -19,3 +19,30 @@ Adjust indicator size on FullCalendar
 Ugly hack to make the color box show on Modal
 */
 .colorpicker-visible {z-index: 9999!important;}
+
+/*
+Profile
+*/
+.profile .user-info {
+    padding: 13px 15px 12px 15px;
+    white-space: nowrap;
+    position: relative;
+    border-bottom: 1px solid #e9e9e9;
+    height: 200px;
+}
+
+.profile .user-info .image {
+    display: flex;
+}
+
+.profile .user-info .image .background {
+    padding: 8px;
+    background-color: #FFF;
+    border-radius: 50%;
+    display: inline-block;
+    margin: auto;
+}
+
+.profile .user-info .image .background img {
+    border-radius: 50%;
+}

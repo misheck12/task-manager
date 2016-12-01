@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :can_access
   before_action :set_task, only: [:show, :edit, :update, :destroy, :destroy_all]
   before_action :require_authentication,
         only: [:show, :edit, :update, :destroy, :new, :create]
@@ -23,6 +24,7 @@ class TasksController < ApplicationController
   # POST /tasks
   def create
     @task = Task.new(task_params)
+    @task.current_user = current_user
     token = SecureRandom.urlsafe_base64
 
     @client = Client.all
@@ -179,6 +181,12 @@ class TasksController < ApplicationController
   end
 
   private
+    def can_access
+        unless helpers.role_can?
+            redirect_to dashboard_path, alert: 'danger', notice: 'You cannot access that area!'
+        end
+    end
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])

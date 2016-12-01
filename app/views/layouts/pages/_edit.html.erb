@@ -4,11 +4,13 @@
           <%= t 'layouts.basic.edit_' + text_title %>
       </h2>
       <ul class="header-dropdown m-r-0">
+        <% if role_permission(controller_name, 'destroy') %>
         <li>
           <%= link_to model_element, method: :delete, data: { confirm: 'Are you sure?' } do %>
             <%= material_icon.delete_forever %>
           <% end %>
         </li>
+        <% end %>
       </ul>
   </div>
   <div class="body">

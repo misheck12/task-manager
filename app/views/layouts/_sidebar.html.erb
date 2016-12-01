@@ -23,12 +23,6 @@
                                 <% end %>
                             </li>
                             <li role="separator" class="divider"></li>
-                            <!--
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
-                            <li role="separator" class="divider"></li>
-                        -->
                             <li>
                                 <%= link_to auth_path, method: :delete do %>
                                     <i class="material-icons">input</i> <%= t 'form.signout' %>
@@ -49,30 +43,46 @@
                             <span><%= t 'layouts.application.home' %></span>
                         <% end %>
                     </li>
-                    <li class="<%= page_active? 'clients', controller_name %>">
-                        <%= link_to clients_path do %>
-                            <%= material_icon.contacts %>
-                            <span><%= t 'layouts.application.clients' %></span>
-                        <% end %>
-                    </li>
-                    <li class="<%= page_active? 'service_types', controller_name %>">
-                        <%= link_to service_types_path do %>
-                            <%= material_icon.developer_board %>
-                            <span><%= t 'layouts.application.service_types' %></span>
-                        <% end %>
-                    </li>
-                    <li class="<%= page_active? 'services', controller_name %>">
-                        <%= link_to services_path do %>
-                            <%= material_icon.phonelink %>
-                            <span><%= t 'layouts.application.services' %></span>
-                        <% end %>
-                    </li>
-                    <li class="<%= page_active? 'tasks', controller_name %>">
-                        <%= link_to tasks_path do %>
-                            <%= material_icon.event %>
-                            <span><%= t 'layouts.application.tasks' %></span>
-                        <% end %>
-                    </li>
+                    <% if role_permission('users', 'show') %>
+                        <li class="<%= page_active? 'users', controller_name %>">
+                            <%= link_to users_path do %>
+                                <%= material_icon.person %>
+                                <span>Users</span>
+                            <% end %>
+                        </li>
+                    <% end %>
+                    <% if role_permission('clients', 'show') %>
+                        <li class="<%= page_active? 'clients', controller_name %>">
+                            <%= link_to clients_path do %>
+                                <%= material_icon.contacts %>
+                                <span><%= t 'layouts.application.clients' %></span>
+                            <% end %>
+                        </li>
+                    <% end %>
+                    <% if role_permission('service_types', 'show') %>
+                        <li class="<%= page_active? 'service_types', controller_name %>">
+                            <%= link_to service_types_path do %>
+                                <%= material_icon.developer_board %>
+                                <span><%= t 'layouts.application.service_types' %></span>
+                            <% end %>
+                        </li>
+                    <% end %>
+                    <% if role_permission('services', 'show') %>
+                        <li class="<%= page_active? 'services', controller_name %>">
+                            <%= link_to services_path do %>
+                                <%= material_icon.phonelink %>
+                                <span><%= t 'layouts.application.services' %></span>
+                            <% end %>
+                        </li>
+                    <% end %>
+                    <% if role_permission('tasks', 'show') %>
+                        <li class="<%= page_active? 'tasks', controller_name %>">
+                            <%= link_to tasks_path do %>
+                                <%= material_icon.event %>
+                                <span><%= t 'layouts.application.tasks' %></span>
+                            <% end %>
+                        </li>
+                    <% end %>
                 </ul>
             </div>
             <!-- #Menu -->

@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="header">
+      <h2>
+          <%= t '.' %>
+      </h2>
+  </div>
+  <div class="body table-responsive">
+  <div class="alert alert-info">
+    Edit and Destroy on Tasks Area to Employee and Only Task roles are only for items created by the user
+  </div>
+  <%= form_for edit_settings_roles_path, :html => { :id => 'role_form' } do |f| %>
+    <% @areas.each do |a| %>
+      <div class="row clearfix">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <h4>Area: <%= a.gsub('_', ' ').capitalize %></h4>
+        </div>
+      </div>
+      <div class="row clearfix">
+        <% @roles.each do |r| %>
+        <div class="col-md-2 col-sm-3 col-xs-12"><%= r.gsub('_', ' ').capitalize %></div>
+        <div class="col-md-10 col-sm-9 col-xs-12">
+          <% ['show', 'edit', 'new', 'destroy'].each do |t| %>
+            <%= text_field_tag a + "[" + r + "][" + t + "]", 0, :class => 'hide', :id => a + "_" + r + "_" + t + "_hide" %>
+            <%= check_box_tag a + "[" + r + "][" + t + "]", 1, role_permission(a, t, r), :class => 'filled-in' %>
+            <%= label_tag a + "[" + r + "][" + t + "]", t.gsub('_', ' ').capitalize, :class => 'm-r-30' %>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+    <%= f.submit t('form.send'), :class => 'btn btn-primary m-t-15 waves-effect' %>
+  <% end %>
+  </div>
+</div>

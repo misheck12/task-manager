@@ -1,0 +1,41 @@
+<%= render 'layouts/pages/index',
+  text_title: 'users',
+  model_path: new_user_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Confirmed At</th>
+      <th>Created At</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.full_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td>
+          <% if user.confirmed_at.present? %>
+            <%= format user.confirmed_at %>
+          <% else %>
+            <span class="label bg-red">Pending</span>
+          <% end %>
+        </td>
+        <td><%= format user.created_at %></td>
+        <td>
+          <%= link_to 'Show', user %> |
+          <%= link_to 'Edit', edit_user_path(user) %> |
+          <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render 'layouts/pages/end' %>

@@ -47,6 +47,9 @@ en:
       service_types: Service Type
       services: Services
       tasks: Tasks
+      settings: Role
+  settings:
+    roles: Roles
   form:
     signin: Login
     signup: Sign Up
@@ -65,6 +68,8 @@ en:
     activity: Activity
     when: When
     color: Color
+    current_password: Current Password
+    new_password: New Password
   signup_mailer:
     confirm_email:
       subject: 'Site Name - Confirm your email'

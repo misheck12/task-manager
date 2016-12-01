@@ -1,28 +1,7 @@
-<div class="card">
-  <div class="header">
-      <h2>
-          <%= t 'layouts.basic.edit' %>
-      </h2>
-      <%= render 'dropdown' %>
-  </div>
-  <div class="body">
-    <%= form_for @user, :html => { :id => 'edit_profile' } do |f| %>
-      <% if @user.errors.any? %>
-        <div class="alert alert-danger">
-          <% @user.errors.full_messages.each do |message| %>
-            <%= message %>
-          <% end %>
-        </div>
-      <% end %>
-      <div class="input-group">
-        <span class="input-group-addon">
-          <%= material_icon.person %>
-        </span>
-        <div class="form-line">
-          <%= f.text_field :full_name, :class => 'form-control', :placeholder => t('form.username') %>
-        </div>
-      </div>
-      <%= f.submit t('form.send'), :class => 'btn btn-primary m-t-15 waves-effect' %>
-    <% end %>
-  </div>
-</div>
+<%= render 'layouts/pages/edit',
+  text_title: 'user',
+  model_element: @user %>
+
+<%= render 'form', user: @user %>
+
+<%= render 'layouts/pages/end' %>

@@ -1,18 +1,58 @@
+<div class="profile">
+    <div class="user-info" style="background: url(<%= user_background %>) no-repeat no-repeat;     background-size: cover;">
+        <div class="image">
+            <div class="background">
+                <img src="<%= user_photo true %>" width="100" height="100" alt="User" />
+            </div>
+        </div>
+        <h1 class="center col-white align-center"><%= @user.full_name %></h1>
+    </div>
+</div>
 <div class="card">
-  <div class="header">
-      <h2>
-          <%= t 'layouts.basic.info' %>
-      </h2>
-      <%= render 'dropdown' %>
-  </div>
-  <div class="body">
-      <p>
-        <strong>Name: </strong>
-        <%= current_user.full_name %>
-      </p>
-      <p>
-        <strong>Email: </strong>
-        <%= current_user.email %>
-      </p>
-  </div>
+    <div class="body">
+        <div class="row clearfix">
+            <div class="col-md-4 col-xs-12">
+                <div class="card m-t-20">
+                    <div class="body">
+                        <ul class="">
+                          <li>
+                            <%= link_to edit_profile_user_path, :class => "waves-effect waves-block" do %>
+                              <%= t 'layouts.basic.edit' %>
+                            <% end %>
+                          </li>
+                          <li>
+                            <%= link_to edit_photo_user_path, :class => "waves-effect waves-block" do %>
+                              <%= t 'layouts.basic.edit_photo' %>
+                            <% end %>
+                          </li>
+                          <li>
+                            <%= link_to edit_background_user_path, :class => "waves-effect waves-block" do %>
+                              <%= t 'layouts.basic.edit_background' %>
+                            <% end %>
+                          </li>
+                          <li>
+                            <%= link_to edit_password_user_path, :class => "waves-effect waves-block" do %>
+                              <%= t 'layouts.basic.change_password' %>
+                            <% end %>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-xs-12">
+                <div class="card m-t-20">
+                    <div class="body">
+                        <p>
+                            <strong>Name: </strong>
+                            <%= @user.full_name %>
+                        </p>
+                        <p>
+                            <strong>Email: </strong>
+                            <%= @user.email %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

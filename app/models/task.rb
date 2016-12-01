@@ -10,6 +10,9 @@ class Task < ApplicationRecord
   validates :activity, length: {minimum: 3, maximum: 128}
   validates_format_of :color, with: COLOR_REGEXP
 
+  attr_accessor :current_user 
+  validates_presence_of :current_user
+
   scope :user, ->(id) { where(:user_id => id) }
   scope :past, -> { where(:when => (DateTime.now - 20.years)..(DateTime.now)) }
   scope :next_year, -> { where(:when => (DateTime.now - 3.months)..(DateTime.now + 12.months)) }
@@ -20,6 +23,10 @@ class Task < ApplicationRecord
   scope :done, -> { where(:done => 1) }
   scope :pending, -> { where.not(:done => 1) }
   scope :old_first, -> { order(when: :asc) }
+
+  before_create do |task|
+    task.created_by_id = current_user.id
+  end
 
   def adjust_done
     if (self.done.present? && !self.done_at.present?)

@@ -36,9 +36,13 @@
         </td>
         <td><%= service.info %></td>
         <td>
-          <%= link_to 'Show', service %> |
-          <%= link_to 'Edit', edit_service_path(service) %> |
-          <%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Show', service %>
+          <% if role_permission(controller_name, 'edit') %>
+            | <%= link_to 'Edit', edit_service_path(service) %>
+          <% end %>
+          <% if role_permission(controller_name, 'destroy') %>
+            | <%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         </td>
       </tr>
     <% end %>

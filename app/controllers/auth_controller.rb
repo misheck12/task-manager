@@ -12,7 +12,7 @@ class AuthController < ApplicationController
         @auth = Auth.new(session, params[:auth])
 
         if @auth.authenticate!
-            redirect_to dashboard_path, notice: t('flash.notice.signed_in')
+            redirect_to dashboard_path
         else
             render :new
         end

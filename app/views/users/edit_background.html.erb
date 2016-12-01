@@ -7,13 +7,7 @@
   </div>
   <div class="body">
     <%= form_for @user, url: edit_background_user_path, :html => { :id => 'edit_profile_background', :multipart => true } do |f| %>
-      <% if @user.errors.any? %>
-        <div class="alert alert-danger">
-          <% @user.errors.full_messages.each do |message| %>
-            <%= message %>
-          <% end %>
-        </div>
-      <% end %>
+      <%= render "layouts/errors", :model_error => @user %>
       <div class="input-group">
         <span class="input-group-addon">
           <%= material_icon.image %>

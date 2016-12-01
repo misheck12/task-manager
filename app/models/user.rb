@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   scope :confirmed, -> { where.not(confirmed_at: nil) }
 
+  enum roles: [ :admin, :manager, :employee, :only_task ]
+
   validates :email, :full_name, presence: true
   validates :full_name, length: {minimum: 3, maximum: 32}
   validates_uniqueness_of :email

@@ -1,6 +1,7 @@
 class ServiceTypesController < ApplicationController
-  before_action :set_service_type, only: [:show, :edit, :update, :destroy]
-  before_action :require_authentication,
+    before_action :can_access
+    before_action :set_service_type, only: [:show, :edit, :update, :destroy]
+    before_action :require_authentication,
         only: [:show, :edit, :update, :destroy, :new, :create]
 
   # GET /service_types
@@ -48,6 +49,13 @@ class ServiceTypesController < ApplicationController
   end
 
   private
+
+    def can_access
+        unless helpers.role_can?
+            redirect_to dashboard_path, alert: 'danger', notice: 'You cannot access that area!'
+        end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_service_type
       @service_type = ServiceType.find(params[:id])

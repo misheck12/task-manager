@@ -1,19 +1,17 @@
 <div class="card">
   <div class="header">
       <h2>
-          <%= t 'layouts.basic.edit_photo' %>
+          <%= t 'layouts.basic.edit_profile' %>
       </h2>
       <%= render 'dropdown' %>
   </div>
   <div class="body">
-    <%= form_for @user, url: edit_photo_user_path, :html => { :id => 'edit_profile_photo', :multipart => true } do |f| %>
+    <%= form_for @user, url: edit_profile_user_path, :html => { :id => 'edit_profile' } do |f| %>
       <%= render "layouts/errors", :model_error => @user %>
-      <div class="input-group">
-        <span class="input-group-addon">
-          <%= material_icon.person %>
-        </span>
+      <%= f.label :full_name %>
+      <div class="form-group">
         <div class="form-line">
-          <%= f.file_field :photo %>
+          <%= f.text_field :full_name, :class => 'form-control', :placeholder => t('form.username') %>
         </div>
       </div>
       <%= f.submit t('form.send'), :class => 'btn btn-primary m-t-15 waves-effect' %>

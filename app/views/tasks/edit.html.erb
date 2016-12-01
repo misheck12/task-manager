@@ -9,16 +9,20 @@
             <%= material_icon.visibility %>
           <% end %>
         </li>
+        <% if role_permission(controller_name, 'destroy') %>
         <li>
           <%= link_to @task, method: :delete, data: { confirm: 'Are you sure you want to delete this event?' } do %>
             <%= material_icon.delete_forever %>
           <% end %>
         </li>
+        <% end %>
+        <% if role_permission(controller_name, 'destroy') %>
         <li>
           <%= link_to destroy_all_tasks_path, method: :delete, data: { confirm: 'Are you sure you want to delete this event and all future repetition of this event?' } do %>
             <%= material_icon.delete_sweep %>
           <% end %>
         </li>
+        <% end %>
       </ul>
   </div>
   <div class="body">

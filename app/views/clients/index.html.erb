@@ -21,9 +21,13 @@
         <td><%= client.address %></td>
         <td><%= client.site %></td>
         <td>
-            <%= link_to 'Show', client %> |
-            <%= link_to 'Edit', edit_client_path(client) %> |
-            <%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Show', client %>
+            <% if role_permission(controller_name, 'edit') %>
+              | <%= link_to 'Edit', edit_client_path(client) %>
+            <% end %>
+            <% if role_permission(controller_name, 'destroy') %>
+              | <%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
         </td>
       </tr>
     <% end %>
