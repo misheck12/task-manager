@@ -1,24 +1,28 @@
-# README
+# TASK MANAGER
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+System made using Ruby on Rails.
 
-Things you may want to cover:
 
-* Ruby version
+### Note:
+I've made it to improve my knoweledge in Ruby and in Rails. You will, probably, find a lot of parts that are not fully polished. But, as I told, it is a system made to learn puporse. I only recommend to use it with the same purpose.
 
-* System dependencies
 
-* Configuration
+### Images
 
-* Database creation
+Dashboard
+![alt tag](https://s3-us-west-2.amazonaws.com/carnou.com/task-manager/dashboard.png)
 
-* Database initialization
+Roles and Permissions
+![alt tag](https://s3-us-west-2.amazonaws.com/carnou.com/task-manager/role.png)
 
-* How to run the test suite
+New Task
+![alt tag](https://s3-us-west-2.amazonaws.com/carnou.com/task-manager/new-task.png)
 
-* Services (job queues, cache servers, search engines, etc.)
+New Task - Choose Date and Time
+![alt tag](https://s3-us-west-2.amazonaws.com/carnou.com/task-manager/new-task-choose-date.png)
 
-* Deployment instructions
+New Task - Repeat
+![alt tag](https://s3-us-west-2.amazonaws.com/carnou.com/task-manager/new-task-repeat.png)
 
-* ...
+Tasks - Calendar
+![alt tag](https://s3-us-west-2.amazonaws.com/carnou.com/task-manager/tasks-calendar.png)
