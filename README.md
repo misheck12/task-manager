@@ -2,11 +2,6 @@
 
 System made using Ruby on Rails.
 
-
-### Note:
-I've made it to improve my knoweledge in Ruby and in Rails. You will, probably, find a lot of parts that are not fully polished. But, as I told, it is a system made to learn puporse. I only recommend to use it with the same purpose.
-
-
 ### Images
 
 Dashboard
@@ -26,3 +21,7 @@ New Task - Repeat
 
 Tasks - Calendar
 ![alt tag](https://s3-us-west-2.amazonaws.com/carnou.com/task-manager/tasks-calendar.png)
+
+
+### Note:
+I've made it to improve my knoweledge in Ruby and in Rails. You will, probably, find a lot of parts that are not fully polished. But, as I told, it is a system made to learn puporse. I only recommend to use it with the same purpose.
